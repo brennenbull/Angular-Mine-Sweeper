@@ -1,0 +1,52 @@
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.button{
+  height: 50px;
+  width: 150px;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.piece{
+  height: 40px;
+  width: 40px;
+  background: gray;
+  border: 1px solid black;
+}
+
+.clicked-piece{
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+}
+
+.mine-piece{
+  height: 40px;
+  width: 40px;
+  background: red;
+  border: 1px solid black;
+}
+
+table{
+  margin-top: 20vh;
+  border-collapse: collapse;
+}
+
+.modal{
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+
+.play-again{
+  background: green;
+}

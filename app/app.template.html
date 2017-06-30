@@ -1,0 +1,31 @@
+<div class="button start" ng-click="$ctrl.makeboard(); $ctrl.hidebutton(); $ctrl.placeMine(); $ctrl.traverseBoard()" ng-if="$ctrl.show">
+  <h3>Wanna Play?</h3>
+</div>
+<table border="1" ng-if="!$ctrl.show">
+  <tr ng-repeat="row in $ctrl.rows">
+    <td ng-repeat="piece in row.pieces" ng-click="piece.isClicked=true; $ctrl.evalGame(); ">
+      <div class="piece" ng-if="!piece.isClicked">
+      </div>
+      <div class="clicked-piece" ng-if="piece.isClicked && piece.content == 'empty'" ng-init="$ctrl.hasWon(); $ctrl.locatePiece(piece, row)">
+      </div>
+      <div class="clicked-piece" ng-if="piece.isClicked && piece.content !== 'empty' && piece.content !== 'mine'" ng-init="$ctrl.hasWon()">
+        {{piece.content}}
+      </div>
+      <div class ="mine-piece" ng-if="piece.isClicked && piece.content == 'mine'" ng-init="$ctrl.lost=true">
+      </div>
+    </td>
+  </tr>
+</table>
+<div class="modal win" ng-if="$ctrl.win">
+  <h1>Congrats!!</h1>
+  <h1>You Won!</h1>
+  <div class="button play-again" ng-click="$ctrl.resetGame()">
+    <h3>Play Again?</h3>
+  </div>
+</div>
+<div class="modal lost" ng-if="$ctrl.lost">
+  <h1>You Lost</h1>
+  <div class="button play-again" ng-click="$ctrl.resetGame()">
+    <h3>Play Again?</h3>
+  </div>
+</div>
